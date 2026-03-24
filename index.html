@@ -231,25 +231,6 @@ body{
 }
 .app-cta svg{width:16px;height:16px}
 
-/* Coming Soon card */
-.app-card.coming-soon{
-  border-style:dashed;
-  opacity:.5;
-  cursor:default;
-}
-.app-card.coming-soon:hover{
-  transform:none;
-  box-shadow:none;
-  border-color:var(--border);
-}
-.app-card.coming-soon::before{display:none}
-.coming-icon{
-  width:60px;height:60px;border-radius:14px;flex-shrink:0;
-  background:var(--bg-subtle);border:2px dashed var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;color:var(--text-dim);
-}
-
 /* ===== About ===== */
 .about-content{
   background:var(--surface);
@@ -357,20 +338,6 @@ body{
           <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
         </svg>
       </a>
-    </article>
-
-    <!-- Coming Soon -->
-    <article class="app-card coming-soon">
-      <div class="app-card-header">
-        <div class="coming-icon">?</div>
-        <div>
-          <h3 class="app-name">Coming Soon</h3>
-          <div class="app-badges">
-            <span class="app-badge badge-pwa">TBD</span>
-          </div>
-        </div>
-      </div>
-      <p class="app-desc">次のツールを開発中です。</p>
     </article>
 
   </div>
