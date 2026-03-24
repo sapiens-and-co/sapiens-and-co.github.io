@@ -14,17 +14,22 @@
 <link rel="icon" href="/assets/mascot.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#fafafa;
-  --surface:#ffffff;
-  --text:#1a1a2e;
-  --text-dim:#6b7280;
+  --bg:#0d0d1a;
+  --bg-subtle:#141428;
+  --surface:#1a1a2e;
+  --surface-hover:#222240;
+  --text:#e8e8f0;
+  --text-dim:#8888aa;
   --accent:#f0d830;
   --accent-hover:#d4be20;
-  --border:#e5e7eb;
+  --accent-glow:rgba(240,216,48,.15);
+  --border:#2a2a48;
+  --pink:#ff69b4;
+  --radius:12px;
 }
 html{scroll-behavior:smooth}
 body{
@@ -33,143 +38,264 @@ body{
   color:var(--text);
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 
 /* ===== Hero ===== */
 .hero{
-  min-height:60vh;
+  min-height:80vh;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:60px 24px 40px;
+  padding:80px 24px 60px;
   text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-40%;left:-20%;
+  width:140%;height:140%;
+  background:radial-gradient(ellipse at 50% 30%,rgba(240,216,48,.06) 0%,transparent 60%),
+             radial-gradient(ellipse at 20% 80%,rgba(255,105,180,.04) 0%,transparent 50%);
+  pointer-events:none;
 }
 .hero-mascot{
-  width:80px;
-  height:80px;
-  margin-bottom:20px;
-  animation:fadeIn .8s ease;
+  width:100px;height:100px;
+  margin-bottom:24px;
+  animation:fadeInUp .8s ease;
+  filter:drop-shadow(0 4px 20px rgba(240,216,48,.3));
 }
 .hero-brand{
-  font-size:2rem;
-  font-weight:700;
-  letter-spacing:-.02em;
-  margin-bottom:8px;
+  font-size:2.5rem;
+  font-weight:800;
+  letter-spacing:-.03em;
+  margin-bottom:12px;
+  background:linear-gradient(135deg,#fff 0%,#f0d830 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:fadeInUp .8s ease .1s both;
 }
 .hero-tagline{
-  font-size:1rem;
+  font-size:1.125rem;
   color:var(--text-dim);
   font-weight:400;
-  letter-spacing:.04em;
+  letter-spacing:.06em;
+  animation:fadeInUp .8s ease .2s both;
+}
+.hero-sub{
+  margin-top:16px;
+  font-size:.875rem;
+  color:var(--text-dim);
+  max-width:400px;
+  line-height:1.8;
+  animation:fadeInUp .8s ease .3s both;
 }
 .scroll-hint{
-  margin-top:40px;
-  opacity:.3;
-  animation:bounce 2s ease infinite;
+  margin-top:48px;
+  opacity:.25;
+  animation:bounce 2.5s ease infinite;
+  color:var(--accent);
 }
-.scroll-hint svg{width:24px;height:24px}
+.scroll-hint svg{width:28px;height:28px}
 
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 
 /* ===== Section ===== */
 .section{
-  max-width:720px;
+  max-width:860px;
   margin:0 auto;
   padding:0 24px 80px;
 }
 .section-title{
-  font-size:1.125rem;
-  font-weight:600;
-  color:var(--text-dim);
-  letter-spacing:.08em;
+  font-size:.8125rem;
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:.12em;
   text-transform:uppercase;
-  margin-bottom:24px;
+  margin-bottom:32px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.section-title::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,var(--border),transparent);
 }
 
 /* ===== App Card Grid ===== */
 .app-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:20px;
+  grid-template-columns:1fr;
+  gap:24px;
 }
 .app-card{
   background:var(--surface);
   border:1px solid var(--border);
-  border-radius:12px;
-  padding:28px 24px;
-  transition:transform .2s,box-shadow .2s;
+  border-radius:var(--radius);
+  padding:32px 28px;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:16px;
+  position:relative;
+  overflow:hidden;
+}
+.app-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--pink));
+  opacity:0;transition:opacity .3s;
 }
 .app-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(0,0,0,.3);
+  border-color:rgba(240,216,48,.3);
 }
+.app-card:hover::before{opacity:1}
+
 .app-card-header{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:16px;
 }
 .app-icon{
-  width:56px;
-  height:56px;
-  border-radius:12px;
+  width:60px;height:60px;
+  border-radius:14px;
   flex-shrink:0;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
 }
 .app-name{
-  font-size:1.125rem;
+  font-size:1.25rem;
   font-weight:700;
 }
+.app-badges{display:flex;gap:6px;margin-top:4px;flex-wrap:wrap}
 .app-badge{
   display:inline-block;
-  font-size:.6875rem;
-  font-weight:600;
-  color:var(--accent-hover);
-  background:rgba(240,216,48,.15);
+  font-size:.625rem;
+  font-weight:700;
+  letter-spacing:.04em;
   padding:2px 8px;
   border-radius:4px;
-  margin-top:2px;
 }
+.badge-pwa{color:var(--accent);background:var(--accent-glow);border:1px solid rgba(240,216,48,.25)}
+.badge-offline{color:#6ee7b7;background:rgba(110,231,183,.1);border:1px solid rgba(110,231,183,.2)}
+.badge-free{color:#93c5fd;background:rgba(147,197,253,.1);border:1px solid rgba(147,197,253,.2)}
+
 .app-desc{
   font-size:.9375rem;
   color:var(--text-dim);
-  line-height:1.7;
+  line-height:1.8;
 }
+
+/* Feature list */
+.app-features{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px 16px;
+  padding:16px 0 4px;
+}
+.app-feat{
+  display:flex;align-items:center;gap:8px;
+  font-size:.8125rem;color:var(--text);
+}
+.app-feat-icon{
+  width:28px;height:28px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--accent-glow);border-radius:6px;
+  font-size:14px;
+}
+
 .app-cta{
   display:inline-flex;
   align-items:center;
-  gap:6px;
-  background:var(--accent);
-  color:var(--text);
+  gap:8px;
+  background:linear-gradient(135deg,var(--accent),#e0c820);
+  color:var(--bg);
   font-weight:700;
   font-size:.875rem;
-  padding:10px 24px;
+  padding:12px 28px;
   border-radius:8px;
   text-decoration:none;
-  transition:background .2s;
+  transition:transform .2s,box-shadow .2s;
   align-self:flex-start;
   margin-top:4px;
+  box-shadow:0 4px 16px rgba(240,216,48,.2);
 }
-.app-cta:hover{background:var(--accent-hover)}
+.app-cta:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 24px rgba(240,216,48,.3);
+}
 .app-cta svg{width:16px;height:16px}
+
+/* Coming Soon card */
+.app-card.coming-soon{
+  border-style:dashed;
+  opacity:.5;
+  cursor:default;
+}
+.app-card.coming-soon:hover{
+  transform:none;
+  box-shadow:none;
+  border-color:var(--border);
+}
+.app-card.coming-soon::before{display:none}
+.coming-icon{
+  width:60px;height:60px;border-radius:14px;flex-shrink:0;
+  background:var(--bg-subtle);border:2px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;color:var(--text-dim);
+}
+
+/* ===== About ===== */
+.about-content{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:32px 28px;
+  display:flex;
+  align-items:flex-start;
+  gap:24px;
+}
+.about-icon{
+  width:48px;height:48px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--accent-glow);border-radius:12px;
+  font-size:24px;
+}
+.about-text{flex:1}
+.about-text h3{
+  font-size:1rem;font-weight:700;margin-bottom:8px;
+}
+.about-text p{
+  font-size:.875rem;color:var(--text-dim);line-height:1.8;
+}
 
 /* ===== Footer ===== */
 .footer{
   text-align:center;
-  padding:32px 24px;
+  padding:40px 24px;
   color:var(--text-dim);
-  font-size:.8125rem;
+  font-size:.75rem;
   border-top:1px solid var(--border);
+  letter-spacing:.02em;
 }
 
 /* ===== Responsive ===== */
 @media(min-width:640px){
-  .hero{padding:80px 32px 60px}
-  .hero-brand{font-size:2.5rem}
+  .hero{padding:100px 32px 80px}
+  .hero-brand{font-size:3rem}
+  .hero-mascot{width:120px;height:120px}
   .section{padding:0 32px 100px}
+  .app-grid{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+  .about-content{padding:40px 36px}
+}
+@media(max-width:480px){
+  .app-features{grid-template-columns:1fr}
+  .about-content{flex-direction:column;gap:16px}
 }
 </style>
 </head>
@@ -177,9 +303,10 @@ body{
 
 <!-- Hero -->
 <section class="hero">
-  <img class="hero-mascot" src="assets/mascot.png" alt="Sapiens & Co. mascot" width="80" height="80">
+  <img class="hero-mascot" src="assets/mascot.png" alt="Sapiens & Co. mascot" width="120" height="120">
   <h1 class="hero-brand">Sapiens & Co.</h1>
   <p class="hero-tagline">つくる、つかう、たのしむ。</p>
+  <p class="hero-sub">ポーカープレイヤーによる、ポーカープレイヤーのためのツール開発</p>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 9 12 15 18 9"/>
@@ -195,13 +322,35 @@ body{
     <!-- Poker Hand Logger -->
     <article class="app-card">
       <div class="app-card-header">
-        <img class="app-icon" src="assets/app-poker.png" alt="Poker Hand Logger" width="56" height="56">
+        <img class="app-icon" src="assets/app-poker.png" alt="Poker Hand Logger" width="60" height="60">
         <div>
           <h3 class="app-name">Sapiens Poker Logger</h3>
-          <span class="app-badge">PWA</span>
+          <div class="app-badges">
+            <span class="app-badge badge-pwa">PWA</span>
+            <span class="app-badge badge-offline">OFFLINE</span>
+            <span class="app-badge badge-free">FREE</span>
+          </div>
         </div>
       </div>
-      <p class="app-desc">ポーカーのハンド履歴をスマホで素早く記録。セッション管理・トリップ管理に対応したハンドロガーです。</p>
+      <p class="app-desc">ポーカーのハンド履歴をスマホで素早く記録。セッション管理・トリップ管理に対応した、ライブポーカープレイヤーのためのハンドロガーです。</p>
+      <div class="app-features">
+        <div class="app-feat">
+          <div class="app-feat-icon">&#9824;</div>
+          <span>ハンド記録・テンプレート生成</span>
+        </div>
+        <div class="app-feat">
+          <div class="app-feat-icon">&#128203;</div>
+          <span>セッション・トリップ管理</span>
+        </div>
+        <div class="app-feat">
+          <div class="app-feat-icon">&#9000;</div>
+          <span>ポーカー専用キーボード</span>
+        </div>
+        <div class="app-feat">
+          <div class="app-feat-icon">&#128247;</div>
+          <span>オフライン完全対応</span>
+        </div>
+      </div>
       <a class="app-cta" href="/Sapiens-Poker-Logger/">
         アプリを開く
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -210,14 +359,38 @@ body{
       </a>
     </article>
 
-    <!-- Future apps: copy the <article class="app-card"> block above -->
+    <!-- Coming Soon -->
+    <article class="app-card coming-soon">
+      <div class="app-card-header">
+        <div class="coming-icon">?</div>
+        <div>
+          <h3 class="app-name">Coming Soon</h3>
+          <div class="app-badges">
+            <span class="app-badge badge-pwa">TBD</span>
+          </div>
+        </div>
+      </div>
+      <p class="app-desc">次のツールを開発中です。</p>
+    </article>
 
+  </div>
+</section>
+
+<!-- About -->
+<section class="section">
+  <h2 class="section-title">About</h2>
+  <div class="about-content">
+    <div class="about-icon">&#128640;</div>
+    <div class="about-text">
+      <h3>Sapiens & Co.</h3>
+      <p>ポーカーテーブルで感じた「こんなツールがあれば」を形にするプロジェクトです。プレイヤー目線で、シンプルで使いやすいアプリを作っています。</p>
+    </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
-  &copy; 2026 Sapiens & Co.
+  &copy; 2026 Sapiens & Co. All rights reserved.
 </footer>
 
 </body>
