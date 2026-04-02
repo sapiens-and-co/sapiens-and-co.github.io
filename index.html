@@ -140,24 +140,12 @@ body{
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:32px 28px;
-  transition:transform .25s,box-shadow .25s,border-color .25s;
   display:flex;
   flex-direction:column;
   gap:16px;
   position:relative;
   overflow:hidden;
 }
-.app-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--accent),var(--pink));
-  opacity:0;transition:opacity .3s;
-}
-.app-card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 40px rgba(0,0,0,.3);
-  border-color:rgba(240,216,48,.3);
-}
-.app-card:hover::before{opacity:1}
 
 .app-card-header{
   display:flex;
@@ -291,7 +279,6 @@ body{
   <img class="hero-mascot" src="assets/4_chara_2.png" alt="Sapiens & Co." width="280">
   <h1 class="hero-brand">Sapiens & Co.</h1>
   <p class="hero-tagline">旅に出よう、ポーカーをしよう。</p>
-  <p class="hero-sub">レクリエーショナルポーカーの進化形</p>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 9 12 15 18 9"/>
@@ -393,7 +380,11 @@ body{
   <div class="about-content">
     <div class="about-text">
       <h3>Sapiens & Co.</h3>
-      <p>ポーカーテーブルで感じた「こんなツールがあれば」を形にするプロジェクトです。プレイヤー目線で、シンプルで使いやすいアプリを作っています。</p>
+      <p>エンジョイポーカーYouTuber チンパンによるアプリ開発プロジェクトです。</p>
+      <a href="https://www.youtube.com/@ChimpanPoker" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:var(--accent);text-decoration:none;font-weight:600;font-size:.95rem;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        youtube.com/@ChimpanPoker
+      </a>
     </div>
   </div>
 </section>
