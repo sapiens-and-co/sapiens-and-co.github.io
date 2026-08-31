@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Works | Sapiens &amp; Co.</title>
+<meta name="description" content="ポーカーのプレイシーンを自動で映像化する仕組みと、無料で公開しているポーカー記録アプリ。エンジョイポーカーYouTuber チンパンによる個人開発の記録。">
+<meta property="og:title" content="Works | Sapiens &amp; Co.">
+<meta property="og:description" content="ポーカーのプレイシーンを自動で映像化する仕組みを、半年かけて作りました。">
+<meta property="og:image" content="https://sapiens-and-co.com/assets/og-image.png">
+<meta property="og:url" content="https://sapiens-and-co.com/works.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/mascot.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0d0d1a;
+  --bg-subtle:#141428;
+  --surface:#1a1a2e;
+  --surface-hover:#222240;
+  --text:#e8e8f0;
+  --text-dim:#8888aa;
+  --accent:#f0d830;
+  --accent-hover:#d4be20;
+  --accent-glow:rgba(240,216,48,.15);
+  --border:#2a2a48;
+  --pink:#ff69b4;
+  --radius:12px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Inter","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:var(--accent)}
+
+/* ===== Top nav ===== */
+.nav{
+  max-width:860px;margin:0 auto;
+  padding:20px 24px;
+  display:flex;align-items:center;gap:12px;
+}
+.nav a{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--text-dim);text-decoration:none;
+  font-size:.8125rem;font-weight:600;letter-spacing:.04em;
+}
+.nav a:hover{color:var(--accent)}
+.nav svg{width:14px;height:14px}
+
+/* ===== Hero ===== */
+.hero{
+  padding:40px 24px 64px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-40%;left:-20%;
+  width:140%;height:140%;
+  background:radial-gradient(ellipse at 50% 30%,rgba(240,216,48,.06) 0%,transparent 60%),
+             radial-gradient(ellipse at 20% 80%,rgba(255,105,180,.04) 0%,transparent 50%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-size:.75rem;font-weight:700;color:var(--accent);
+  letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px;
+  animation:fadeInUp .8s ease;
+}
+.hero-title{
+  font-size:clamp(1.75rem,5vw,2.5rem);
+  font-weight:800;letter-spacing:-.02em;line-height:1.4;
+  margin-bottom:20px;
+  animation:fadeInUp .8s ease .1s both;
+}
+.hero-title em{
+  font-style:normal;
+  background:linear-gradient(180deg,#fff 0%,#f0d830 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:.9375rem;color:var(--text-dim);line-height:1.9;
+  max-width:520px;margin:0 auto;
+  animation:fadeInUp .8s ease .2s both;
+}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== Section ===== */
+.section{max-width:860px;margin:0 auto;padding:0 24px 72px}
+.section-title{
+  font-size:.8125rem;font-weight:700;color:var(--accent);
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:32px;
+  display:flex;align-items:center;gap:12px;
+}
+.section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+
+.lede{
+  font-size:1rem;line-height:2;color:var(--text);
+  max-width:600px;margin:0 auto 32px;
+}
+.lede + .lede{color:var(--text-dim);font-size:.9375rem}
+
+/* ===== Flow (3 steps) ===== */
+.flow{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;max-width:860px;margin:0 auto;
+}
+.flow-step{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:26px 24px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.flow-num{
+  font-size:.6875rem;font-weight:700;color:var(--accent);letter-spacing:.14em;
+}
+.flow-step h3{font-size:1.0625rem;font-weight:700}
+.flow-step p{font-size:.875rem;color:var(--text-dim);line-height:1.9}
+
+/* ===== Stats ===== */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:16px;max-width:860px;margin:0 auto;
+}
+.stat{
+  background:var(--bg-subtle);border:1px solid var(--border);
+  border-radius:var(--radius);padding:22px 20px;text-align:center;
+}
+.stat-n{
+  font-size:1.75rem;font-weight:800;color:var(--accent);
+  letter-spacing:-.02em;line-height:1.3;
+}
+.stat-l{font-size:.75rem;color:var(--text-dim);margin-top:6px;line-height:1.7}
+
+/* ===== Timeline ===== */
+.timeline{max-width:640px;margin:0 auto;position:relative;padding-left:26px}
+.timeline::before{
+  content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;
+  background:linear-gradient(180deg,var(--accent),var(--border));opacity:.5;
+}
+.tl-item{position:relative;padding-bottom:30px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:'';position:absolute;left:-26px;top:7px;
+  width:11px;height:11px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 4px var(--bg);
+}
+.tl-item.dim::before{background:var(--border);box-shadow:0 0 0 4px var(--bg)}
+.tl-date{
+  font-size:.6875rem;font-weight:700;color:var(--accent);
+  letter-spacing:.1em;margin-bottom:6px;
+}
+.tl-item.dim .tl-date{color:var(--text-dim)}
+.tl-item h3{font-size:1rem;font-weight:700;margin-bottom:6px;line-height:1.6}
+.tl-item p{font-size:.875rem;color:var(--text-dim);line-height:1.9}
+
+/* ===== Tags ===== */
+.tags{display:flex;flex-wrap:wrap;gap:8px;max-width:640px;margin:0 auto}
+.tag{
+  font-size:.75rem;font-weight:600;color:var(--text);
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:6px;padding:7px 13px;
+}
+
+/* ===== App cards (site style) ===== */
+.app-grid{display:grid;grid-template-columns:1fr;gap:20px;max-width:600px;margin:0 auto}
+.app-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 26px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.app-card-header{display:flex;align-items:center;gap:16px}
+.app-icon{width:56px;height:56px;border-radius:14px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.app-name{font-size:1.125rem;font-weight:700}
+.app-badges{display:flex;gap:6px;margin-top:4px;flex-wrap:wrap}
+.app-badge{
+  display:inline-block;font-size:.625rem;font-weight:700;
+  letter-spacing:.04em;padding:2px 8px;border-radius:4px;
+}
+.badge-pwa{color:var(--accent);background:var(--accent-glow);border:1px solid rgba(240,216,48,.25)}
+.badge-offline{color:#6ee7b7;background:rgba(110,231,183,.1);border:1px solid rgba(110,231,183,.2)}
+.badge-free{color:#93c5fd;background:rgba(147,197,253,.1);border:1px solid rgba(147,197,253,.2)}
+.badge-wip{color:var(--pink);background:rgba(255,105,180,.1);border:1px solid rgba(255,105,180,.25)}
+.app-desc{font-size:.875rem;color:var(--text-dim);line-height:1.9}
+.app-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--accent),#e0c820);
+  color:var(--bg);font-weight:700;font-size:.8125rem;
+  padding:11px 24px;border-radius:8px;text-decoration:none;
+  transition:transform .2s,box-shadow .2s;align-self:flex-start;
+  box-shadow:0 4px 16px rgba(240,216,48,.2);
+}
+.app-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(240,216,48,.3)}
+.app-cta svg{width:15px;height:15px}
+
+/* ===== About ===== */
+.about-content{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:30px 28px;max-width:600px;margin:0 auto;
+}
+.about-content h3{font-size:1rem;font-weight:700;margin-bottom:10px}
+.about-content p{font-size:.875rem;color:var(--text-dim);line-height:1.9}
+
+/* ===== Footer ===== */
+.footer{
+  text-align:center;padding:36px 24px 48px;
+  color:var(--text-dim);font-size:.75rem;
+  border-top:1px solid var(--border);letter-spacing:.02em;line-height:2;
+}
+.footer .quiet{opacity:.6;font-size:.6875rem}
+
+@media (max-width:600px){
+  .stats{grid-template-columns:1fr 1fr}
+  .section{padding-bottom:56px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+    </svg>
+    Sapiens &amp; Co.
+  </a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <p class="hero-eyebrow">Works — 個人開発の記録</p>
+  <h1 class="hero-title">ポーカーの試合を、<br><em>そのまま映像にする</em></h1>
+  <p class="hero-sub">
+    YouTube で公開しているプレイシーンは、手で1コマずつ並べているわけではありません。
+    自分で作った仕組みが組み立てています。2026年2月から作りはじめて、いまも育てています。
+  </p>
+</section>
+
+<!-- What -->
+<section class="section">
+  <h2 class="section-title">つくったもの</h2>
+
+  <p class="lede">
+    ポーカーの1ハンドを動画にするのは、とにかく手間がかかります。
+    誰がいくら賭けて、どのカードが開いて、どこで勝負が決まったのか。
+    それを毎回、手作業で並べていました。
+  </p>
+  <p class="lede">
+    そこで、<strong>「その場で記録する」ところから「映像ができあがる」ところまで</strong>を
+    ひと続きにする仕組みを作りました。いまは、卓で記録したハンドが、そのまま映像の形になって出てきます。
+  </p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num">STEP 01</div>
+      <h3>記録する</h3>
+      <p>
+        卓でスマホから、そのハンドを丸ごと残します。
+        入力が速いことがすべてなので、ここは何度も作り直しました。
+      </p>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">STEP 02</div>
+      <h3>設計図に変える</h3>
+      <p>
+        記録を、映像を組み立てるための設計図に変換します。
+        ここの作りが、後からテンポを調整できるかどうかを決めます。
+      </p>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">STEP 03</div>
+      <h3>映像にする</h3>
+      <p>
+        After Effects の中に、シーンが自動で組み上がります。
+        あとはテンポを整えて書き出すだけ。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Numbers -->
+<section class="section">
+  <h2 class="section-title">数字で見ると</h2>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">6か月</div><div class="stat-l">開発期間<br>（継続中）</div></div>
+    <div class="stat"><div class="stat-n">7,000行+</div><div class="stat-l">映像を組み立てる<br>スクリプト</div></div>
+    <div class="stat"><div class="stat-n">22本</div><div class="stat-l">1回の遠征から<br>映像化したハンド</div></div>
+    <div class="stat"><div class="stat-n">約1,400枚</div><div class="stat-l">自作した<br>アニメーション素材</div></div>
+    <div class="stat"><div class="stat-n">2本</div><div class="stat-l">無料で公開中の<br>アプリ</div></div>
+    <div class="stat"><div class="stat-n">0円</div><div class="stat-l">利用料・登録<br>いずれも不要</div></div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section">
+  <h2 class="section-title">ここまでの歩み</h2>
+  <div class="timeline">
+
+    <div class="tl-item dim">
+      <div class="tl-date">2026.02</div>
+      <h3>出発点は、失敗でした</h3>
+      <p>
+        最初は「撮影した動画をAIに見せて、カードを自動で読ませる」ことを考えていました。
+        3日試して、実用に届かないと分かって諦めました。
+      </p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2026.02</div>
+      <h3>読ませるのをやめて、書きやすくすることにした</h3>
+      <p>
+        いま思えば、これが一番大きな判断でした。
+        自動で読み取らせるのをやめ、<strong>人が最短で記録できる形</strong>を作る側に回りました。
+        以降の作りは、すべてここから決まっています。
+      </p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2026.02</div>
+      <h3>作っては見て、12回やり直した</h3>
+      <p>
+        仕様を紙の上で決めるのではなく、実際に映像を作って、再生して、おかしいところを直す。
+        これを12回くり返したところで、いまも使っている土台ができました。
+      </p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2026.03</div>
+      <h3>実戦で使い、記録アプリを一般公開した</h3>
+      <p>
+        自分の動画で使いながら直していくうちに、記録する側だけで3回作り替わりました。
+        その完成形を、誰でも無料で使える形で公開しています。
+        着手から38日後のことでした。
+      </p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2026.04 — 08</div>
+      <h3>「普通じゃないハンド」との戦い</h3>
+      <p>
+        自動化でいちばん時間がかかるのは、例外です。
+        滅多に起きない状況をどう見せるか。ここに5か月かかりました。
+        直した記録を見返すと、すべて<strong>実際に動画を作っていた日</strong>に集中しています。
+      </p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2026.08 —</div>
+      <h3>いまはブラックジャック版を作っています</h3>
+      <p>
+        同じ考え方で、ブラックジャックの記録と映像化に取りかかっています。
+        ポーカーで半年かかった部分が、今回は数日で立ち上がりました。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Tech -->
+<section class="section">
+  <h2 class="section-title">使っているもの</h2>
+  <div class="tags">
+    <span class="tag">JavaScript</span>
+    <span class="tag">単一HTML / ビルドなし</span>
+    <span class="tag">外部ライブラリなし</span>
+    <span class="tag">PWA / オフライン動作</span>
+    <span class="tag">Python</span>
+    <span class="tag">After Effects スクリプト</span>
+    <span class="tag">Photoshop / Premiere Pro</span>
+    <span class="tag">DaVinci Resolve</span>
+    <span class="tag">Claude Code</span>
+  </div>
+  <p class="lede" style="margin-top:28px;font-size:.875rem;color:var(--text-dim)">
+    もともとプログラマーではありません。映像を作る人間が、自分の作業を減らすために書いています。
+    フレームワークもビルド環境も使わず、1枚のHTMLで完結させているのはそのためです。
+  </p>
+</section>
+
+<!-- Apps -->
+<section class="section">
+  <h2 class="section-title">公開しているもの</h2>
+  <div class="app-grid">
+
+    <article class="app-card">
+      <div class="app-card-header">
+        <img class="app-icon" src="assets/1_chara_logger.png" alt="Sapiens Poker Logger" width="56" height="56">
+        <div>
+          <h3 class="app-name">Sapiens Poker Logger</h3>
+          <div class="app-badges">
+            <span class="app-badge badge-pwa">PWA</span>
+            <span class="app-badge badge-offline">OFFLINE</span>
+            <span class="app-badge badge-free">FREE</span>
+          </div>
+        </div>
+      </div>
+      <p class="app-desc">
+        ポーカーのハンド履歴をスマホで素早く記録。セッションと遠征の収支も自動で集計します。
+        登録不要・完全無料・オフラインでも動きます。
+      </p>
+      <a class="app-cta" href="/Sapiens-Poker-Logger/">
+        アプリを開く
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </article>
+
+    <article class="app-card">
+      <div class="app-card-header">
+        <img class="app-icon" src="assets/1_chara_wizard.png" alt="Sapiens Poker Wizard" width="56" height="56">
+        <div>
+          <h3 class="app-name">Sapiens Poker Wizard</h3>
+          <div class="app-badges">
+            <span class="app-badge badge-pwa">PWA</span>
+            <span class="app-badge badge-offline">OFFLINE</span>
+            <span class="app-badge badge-free">FREE</span>
+          </div>
+        </div>
+      </div>
+      <p class="app-desc">
+        1ハンドを順番に追いながら、正確に記録するための入力ウィザード。
+        ボードとホールカードから役を自動で判定し、勝敗まで出します。
+      </p>
+      <a class="app-cta" href="/Sapiens-Poker-Wizard/">
+        アプリを開く
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </article>
+
+    <article class="app-card">
+      <div class="app-card-header">
+        <img class="app-icon" src="assets/1_chara_bj.png" alt="Blackjack Log Wizard" width="56" height="56">
+        <div>
+          <h3 class="app-name">Blackjack Log Wizard</h3>
+          <div class="app-badges">
+            <span class="app-badge badge-wip">開発中</span>
+          </div>
+        </div>
+      </div>
+      <p class="app-desc">
+        ブラックジャックの記録を、あとから見返せる形に整えるツール。
+        カジノでの実戦記録を映像にするために作っています。公開は未定です。
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<!-- About -->
+<section class="section">
+  <h2 class="section-title">About</h2>
+  <div class="about-content">
+    <h3>チンパン / Sapiens &amp; Co.</h3>
+    <p>
+      エンジョイポーカーYouTuber。海外のカジノを旅しながらポーカーを打ち、その様子を動画にしています。
+      Sapiens &amp; Co. は、その制作の中で生まれた道具を公開しているプロジェクトです。
+    </p>
+    <a href="https://www.youtube.com/@ChimpanPoker" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:var(--accent);text-decoration:none;font-weight:600;font-size:.9375rem;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      youtube.com/@ChimpanPoker
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  &copy; 2026 Sapiens &amp; Co. All rights reserved.<br>
+  <span class="quiet">映像生成の内部仕様・データ形式・スクリプトは非公開です。</span>
+</footer>
+
+</body>
+</html>
