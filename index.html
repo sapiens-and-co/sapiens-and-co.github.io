@@ -279,7 +279,7 @@ body{
 <section class="hero">
   <img class="hero-mascot" src="assets/4_chara_2.png" alt="Sapiens & Co." width="280">
   <h1 class="hero-brand">Sapiens & Co.</h1>
-  <p class="hero-tagline">旅に出よう、ポーカーをしよう。</p>
+  <p class="hero-tagline">旅に出よう、カジノでまじめに遊ぼう。</p>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 9 12 15 18 9"/>
@@ -287,12 +287,86 @@ body{
   </div>
 </section>
 
-<!-- Poker Products -->
+<!-- Casino&Travel Products -->
 <section class="section">
-  <h2 class="section-title">Poker Products</h2>
+  <h2 class="section-title">Casino&amp;Travel Products</h2>
   <div class="app-grid">
 
-    <p style="text-align:center;font-size:.9375rem;color:var(--text-dim);line-height:1.9;margin:0;">トゥワイスの勝率計算機。</p>
+    <!-- Baccarat Simulator -->
+    <article class="app-card">
+      <div class="app-card-header">
+        <img class="app-icon" src="assets/tool_baccarat.png" alt="バカラシミュレーター" width="60" height="60">
+        <div>
+          <h3 class="app-name" style="font-size:min(1.125rem,5vw);white-space:nowrap">バカラシミュレーター</h3>
+          <div class="app-badges">
+            <span class="app-badge badge-free">FREE</span>
+          </div>
+        </div>
+      </div>
+      <p class="app-desc">ミニマムベットとプレイ時間を入れると、バカラの平均期待収支と結果のブレの範囲を出す計算機です。バンカーとプレイヤーに賭ける割合、コミッションの有無、タイに賭ける頻度を変えられます。ハウスエッジは8デッキの全組み合わせから計算しています。</p>
+      <div class="app-features">
+        <div class="app-feat">
+          <div class="app-feat-icon">&#128176;</div>
+          <span>平均期待収支と円換算</span>
+        </div>
+        <div class="app-feat">
+          <div class="app-feat-icon">&#128201;</div>
+          <span>結果のブレの範囲</span>
+        </div>
+        <div class="app-feat">
+          <div class="app-feat-icon">&#127922;</div>
+          <span>バンカー・プレイヤーの割合</span>
+        </div>
+        <div class="app-feat">
+          <div class="app-feat-icon">&#128177;</div>
+          <span>ウォン・ペソ・ドル・円</span>
+        </div>
+      </div>
+      <a class="app-cta" href="https://chimpan-poker.com/tools/baccarat-ev/" target="_blank" rel="noopener">
+        ツールを開く
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </article>
+
+    <!-- FX Loss -->
+    <article class="app-card">
+      <div class="app-card-header">
+        <img class="app-icon" src="assets/tool_fxloss.png" alt="両替手数料計算" width="60" height="60">
+        <div>
+          <h3 class="app-name">両替手数料計算</h3>
+          <div class="app-badges">
+            <span class="app-badge badge-free">FREE</span>
+          </div>
+        </div>
+      </div>
+      <p class="app-desc">空港や両替所の表示レートを入れると、Google のレート（仲値）と比べて何％損するか、いくらがいくらになるかを出す計算機です。仲値はネットから自動で取ってきます。ウォン・ペソ・台湾ドルなど12通貨に対応し、米ドルやユーロと現地通貨の組み合わせも並べて比べられます。</p>
+      <div class="app-features">
+        <div class="app-feat">
+          <div class="app-feat-icon">&#128177;</div>
+          <span>両替の手数料が何％か</span>
+        </div>
+        <div class="app-feat">
+          <div class="app-feat-icon">&#127760;</div>
+          <span>仲値を自動で取得</span>
+        </div>
+        <div class="app-feat">
+          <div class="app-feat-icon">&#128260;</div>
+          <span>米ドル・ユーロでも比較</span>
+        </div>
+        <div class="app-feat">
+          <div class="app-feat-icon">&#128172;</div>
+          <span>日本語・英語</span>
+        </div>
+      </div>
+      <a class="app-cta" href="https://chimpan-poker.com/tools/fx-loss/" target="_blank" rel="noopener">
+        ツールを開く
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </article>
 
     <!-- Twice Win Rate -->
     <article class="app-card">
@@ -333,14 +407,6 @@ body{
         </svg>
       </a>
     </article>
-
-  </div>
-</section>
-
-<!-- Blackjack Product -->
-<section class="section">
-  <h2 class="section-title">Blackjack Product</h2>
-  <div class="app-grid">
 
     <!-- Blackjack Simulator -->
     <article class="app-card">
@@ -384,49 +450,6 @@ body{
   </div>
 </section>
 
-<!-- Travel Product -->
-<section class="section">
-  <h2 class="section-title">Travel Product</h2>
-  <div class="app-grid">
-    <!-- FX Loss -->
-    <article class="app-card">
-      <div class="app-card-header">
-        <img class="app-icon" src="assets/tool_fxloss.png" alt="両替手数料計算" width="60" height="60">
-        <div>
-          <h3 class="app-name">両替手数料計算</h3>
-          <div class="app-badges">
-            <span class="app-badge badge-free">FREE</span>
-          </div>
-        </div>
-      </div>
-      <p class="app-desc">空港や両替所の表示レートを入れると、Google のレート（仲値）と比べて何％損するか、いくらがいくらになるかを出す計算機です。仲値はネットから自動で取ってきます。ウォン・ペソ・台湾ドルなど12通貨に対応し、米ドルやユーロと現地通貨の組み合わせも並べて比べられます。</p>
-      <div class="app-features">
-        <div class="app-feat">
-          <div class="app-feat-icon">&#128177;</div>
-          <span>両替の手数料が何％か</span>
-        </div>
-        <div class="app-feat">
-          <div class="app-feat-icon">&#127760;</div>
-          <span>仲値を自動で取得</span>
-        </div>
-        <div class="app-feat">
-          <div class="app-feat-icon">&#128260;</div>
-          <span>米ドル・ユーロでも比較</span>
-        </div>
-        <div class="app-feat">
-          <div class="app-feat-icon">&#128172;</div>
-          <span>日本語・英語</span>
-        </div>
-      </div>
-      <a class="app-cta" href="https://chimpan-poker.com/tools/fx-loss/" target="_blank" rel="noopener">
-        ツールを開く
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-        </svg>
-      </a>
-    </article>
-  </div>
-</section>
 <!-- About -->
 <section class="section">
   <h2 class="section-title">About</h2>
