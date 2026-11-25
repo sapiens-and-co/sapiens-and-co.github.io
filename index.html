@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
 <title>Sapiens & Co. | アプリ開発</title>
 <meta name="description" content="Sapiens & Co. は、学びと旅のための小さなアプリを作っています。">
 <meta property="og:title" content="Sapiens & Co.">
@@ -14,26 +15,29 @@
 <link rel="icon" href="/assets/mascot.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#0d0d1a;
-  --bg-subtle:#141428;
-  --surface:#1a1a2e;
-  --surface-hover:#222240;
-  --text:#e8e8f0;
-  --text-dim:#8888aa;
-  --accent:#f0d830;
-  --accent-hover:#d4be20;
-  --accent-glow:rgba(240,216,48,.15);
-  --border:#2a2a48;
-  --pink:#ff69b4;
+  /* 2026-11-25 白基調に（BJ の紹介ページと同じローズピンク） */
+  color-scheme:light;
+  --bg:#ffffff;
+  --bg-subtle:#fff3f7;
+  --surface:#ffffff;
+  --surface-hover:#fff8fb;
+  --text:#1f1b1d;
+  --text-dim:#6b6468;
+  --accent:#d12f6a;
+  --accent-hover:#b8255b;
+  --accent-glow:#ffe3ed;
+  --border:#f7dbe6;
+  --pink:#d12f6a;
   --radius:12px;
 }
 html{scroll-behavior:smooth}
 body{
-  font-family:"Inter","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
+  font-family:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
+  font-feature-settings:"palt";
   background:var(--bg);
   color:var(--text);
   line-height:1.6;
@@ -51,15 +55,8 @@ body{
   text-align:center;
   position:relative;
   overflow:hidden;
-}
-.hero::before{
-  content:'';
-  position:absolute;
-  top:-40%;left:-20%;
-  width:140%;height:140%;
-  background:radial-gradient(ellipse at 50% 30%,rgba(240,216,48,.06) 0%,transparent 60%),
-             radial-gradient(ellipse at 20% 80%,rgba(255,105,180,.04) 0%,transparent 50%);
-  pointer-events:none;
+  /* 上は薄いピンク、下は白へ溶かす（境目の線を出さない） */
+  background:linear-gradient(180deg,#ffe9f1 0%,#fff6f9 55%,#ffffff 100%);
 }
 .hero-mascot{
   width:88px;height:auto;
@@ -72,10 +69,7 @@ body{
   font-weight:800;
   letter-spacing:-.03em;
   margin-bottom:6px;
-  background:linear-gradient(180deg,#fff 0%,#f0d830 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
+  color:var(--text);
   animation:fadeInUp .8s ease .1s both;
 }
 .hero-tagline{
@@ -137,6 +131,7 @@ body{
 .app-card{
   background:var(--surface);
   border:1px solid var(--border);
+  box-shadow:0 6px 24px rgba(209,47,106,.06);
   border-radius:var(--radius);
   padding:32px 28px;
   display:flex;
@@ -155,7 +150,7 @@ body{
   width:60px;height:60px;
   border-radius:14px;
   flex-shrink:0;
-  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  box-shadow:0 4px 12px rgba(31,27,29,.15);
 }
 .app-name{
   font-size:1.25rem;
@@ -170,10 +165,10 @@ body{
   padding:2px 8px;
   border-radius:4px;
 }
-.badge-pwa{color:var(--accent);background:var(--accent-glow);border:1px solid rgba(240,216,48,.25)}
+.badge-pwa{color:var(--accent);background:var(--accent-glow);border:1px solid var(--border)}
 .badge-offline{color:#6ee7b7;background:rgba(110,231,183,.1);border:1px solid rgba(110,231,183,.2)}
-.badge-free{color:#93c5fd;background:rgba(147,197,253,.1);border:1px solid rgba(147,197,253,.2)}
-.badge-proto{color:var(--pink);background:rgba(255,105,180,.1);border:1px solid rgba(255,105,180,.25)}
+.badge-free{color:#d12f6a;background:#fff3f7;border:1px solid #f7dbe6}
+.badge-proto{color:var(--pink);background:var(--bg-subtle);border:1px solid var(--border)}
 
 .app-desc{
   font-size:.9375rem;
@@ -203,8 +198,8 @@ body{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  background:linear-gradient(135deg,var(--accent),#e0c820);
-  color:var(--bg);
+  background:var(--accent);
+  color:#ffffff;
   font-weight:700;
   font-size:.875rem;
   padding:12px 28px;
@@ -213,17 +208,18 @@ body{
   transition:transform .2s,box-shadow .2s;
   align-self:flex-start;
   margin-top:4px;
-  box-shadow:0 4px 16px rgba(240,216,48,.2);
+  box-shadow:0 4px 16px rgba(209,47,106,.25);
 }
 .app-cta:hover{
   transform:translateY(-1px);
-  box-shadow:0 6px 24px rgba(240,216,48,.3);
+  background:var(--accent-hover);
+  box-shadow:0 6px 24px rgba(209,47,106,.3);
 }
 .app-cta svg{width:16px;height:16px}
 
 /* ===== About ===== */
 .about-content{
-  background:var(--surface);
+  background:var(--bg-subtle);
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:32px 28px;
@@ -277,7 +273,7 @@ body{
 
 <!-- Hero -->
 <section class="hero">
-  <img class="hero-mascot" src="assets/4_chara_2.png" alt="Sapiens & Co." width="280">
+  <img class="hero-mascot" src="assets/4_chara_2_rose.png" alt="Sapiens & Co." width="280">
   <h1 class="hero-brand">Sapiens & Co.</h1>
   <p class="hero-tagline">旅に出よう。</p>
 </section>
